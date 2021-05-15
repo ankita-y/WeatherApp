@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            .bkgclr {
+                background-color:#4f2e66;
+            }
+            .textclr{
+                color: white;
+                text-align: center;
+            }
+            .search-container{
+                text-align: center;
+                padding-top: 20px;
+            }
+            .searchbox{
+                width: 500px;
+                height:auto;
+                border-radius: 5px;  
+                padding: 6px;              
+            }
+            .image{
+                width: 150px;
+                height: auto;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                padding-top: 20px;
+            }
+            .desc{
+                color: white;
+            }
+            .cardx{
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+        </style>
+        <title>WeatherApp</title>
+    </head>
+    <body class="bkgclr">
+        <div>
+            <img class="image" src='{% static "sun.jpg" %}'>
+            <h2 class="textclr">Weather App</h2>
+            <div class="search-container">
+                <form method="GET">
+                  <input type="text" placeholder="Enter City" name="search" class="searchbox">
+                  <button class="btn btn-success" type="submit">Submit</button>
+                </form>
+            </div>
+            <div>
+                <h4 class="textclr my-3">Today's Weather </h4><br>
+                <div class="card bg-light mb-3 cardx" style="max-width: 40rem;">
+                    <div class="card-header"><b><h2>{{city}}</h2></b>
+                    {{date}}
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title"><b><h2><i class="fas fa-thermometer-half">{{temp}}</i></h2></b></h5>
+                      <p class="card-text">
+                        Country_city: {{country_code}} <br>                
+                        Humidity: {{humidity}} <br>
+                        <i class="fas fa-arrow-down">Pressure: {{pressure}} </i><br>
+                        <i class="fas fa-cloud"> {{description}}</i>
+                      </p>
+                    </div>
+                </div>              
+                
+            </div>
+        </div>
+        
+    </body>
+</html>
